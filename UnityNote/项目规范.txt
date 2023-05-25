@@ -1,0 +1,49 @@
+格式：
+Txt_
+Btn_
+Img_
+_Unit
+_Panel
+空对象：Rt_
+公有变量：开头大写
+私有：_开头
+消息注册：RegisterMsg();在外层注册，一般只能注册一次
+消息触发：SendMsg();
+图集访问： AtlasManager.Instance.Get_cj1(Loader);
+ui间的通讯：使用消息/子对象
+资源放置；
+静态文本，在TextCode中声明；
+
+unit类型用于类似预制体(可复用对象)
+协程的调用：调用方法同之前一样
+
+数据：
+通过ctrl+W：输入前缀，生成，绑定所有，在ModuleManager中调用
+
+bind：
+panel不能互相嵌套
+unit可以随意嵌套，获取所挂载的unit对象脚本:对象名Pool.GetBase(); 
+创建Unit对象:对象名Pool.Spwan(父对象transform);
+compent表示会挂在上一层的unit或panel
+
+无限滚动：使用对象池控制滚动列表中的对象的显示及隐藏；
+	tips:viewport,和content的锚点都要设置为(0,1)；
+unit在多个地方复用时，才制作成预制体，否则直接放在面板下；因为制作成预制体，不直观，不方便debug；
+
+数据：
+	数据存储，放在module中，网络数据获取也在这；ModuleManager.Instance.xxxx;
+	网络数据的结构放在NetData命名空间中；
+	与服务器交互的函数在NetManager中创建；
+
+类型转化需要捕获异常；
+
+枚举类型的定义位置：EnumDefine脚本文件下；
+头像文件放在Texture中
+
+PlayerPrefs的键值文本定义在PlayerPrefsKey类中；
+
+属性中获取数据不用使用Get命名;
+常用的数据获取,可以放到Eybase中;
+
+一个UI定义一个Module获取数据,其他要获取的数据,就在所绑定的module中添加对应的方法,并将要获取的数据放入到moduleShareData中;
+全屏图片应为没有A通道，放到sprite中会打包成带通道的图集，浪费资源，所有要放到Texture中；
