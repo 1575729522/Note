@@ -47,3 +47,5 @@ PlayerPrefs的键值文本定义在PlayerPrefsKey类中；
 
 一个UI定义一个Module获取数据,其他要获取的数据,就在所绑定的module中添加对应的方法,并将要获取的数据放入到moduleShareData中;
 全屏图片应为没有A通道，放到sprite中会打包成带通道的图集，浪费资源，所有要放到Texture中；
+
+属性的初始化可以直接在内部初始化;
