@@ -2,8 +2,8 @@
 Txt_
 Btn_
 Img_
-_Unit
-_Panel
+xxxxUnit
+xxxxPanel
 空对象：Rt_
 公有变量：开头大写
 私有：_开头
